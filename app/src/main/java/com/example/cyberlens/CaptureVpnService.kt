@@ -47,7 +47,7 @@ class CaptureVpnService : VpnService() {
         val input = FileInputStream(fd)
         val packet = ByteArray(32767)
         val buffer = ByteBuffer.wrap(packet)
-        while (isActive) {
+        while (coroutineContext.isActive) {
             try {
                 val length = input.read(packet)
                 if (length > 0) {
