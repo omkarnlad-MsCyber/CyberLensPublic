@@ -4,7 +4,7 @@ This Flask server receives network traffic data from the CyberLens Android app
 and provides basic security analysis and logging.
 """
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file, send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 import json
@@ -70,6 +70,16 @@ def analyze_host(target):
 def home():
     """Dashboard page"""
     return render_template('dashboard.html')
+
+@app.route('/download')
+def download_page():
+    """Download page for APK build instructions"""
+    return send_file('../download.html')
+
+@app.route('/downloads/<path:filename>')
+def download_file(filename):
+    """Serve downloadable files"""
+    return send_from_directory('../downloads', filename, as_attachment=True)
 
 @app.route('/api/info')
 def api_info():

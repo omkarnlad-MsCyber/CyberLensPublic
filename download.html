@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberLens - Download & Build</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .alert-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .icon {
+            margin-right: 10px;
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .steps ol {
+            padding-left: 25px;
+        }
+        
+        .steps li {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+        
+        .option-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .option-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📱 CyberLens Android App</h1>
+            <p>Welcome! This project includes an Android app that captures network traffic using VPN services. Since Android apps require special build tools, you'll need to build the APK on your computer or use cloud services.</p>
+            
+            <div class="alert">
+                <span class="alert-icon">⚠️</span>
+                <strong>Important:</strong> Android APKs cannot be built directly on Replit due to Android SDK requirements (5-10GB download, special build tools). Follow one of the options below to get your APK.
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="/downloads/CyberLens-Source.tar.gz" class="download-btn">
+                    <span class="icon">📦</span>Download Source Code (TAR.GZ)
+                </a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🎯 Build Options (Choose One)</h2>
+            
+            <div class="option-card">
+                <h3>Option 1: Android Studio <span class="badge">RECOMMENDED</span></h3>
+                <div class="steps">
+                    <ol>
+                        <li>Download <a href="https://developer.android.com/studio" target="_blank">Android Studio</a> (free)</li>
+                        <li>Click the download button above to get the source code ZIP</li>
+                        <li>Extract the ZIP on your computer</li>
+                        <li>Open Android Studio → "Open an Existing Project" → Select the CyberLens folder</li>
+                        <li>Wait for Gradle sync (5-10 minutes first time)</li>
+                        <li>Click <code>Build → Build APK(s)</code></li>
+                        <li>Find your APK in <code>app/build/outputs/apk/debug/app-debug.apk</code></li>
+                    </ol>
+                </div>
+                <p><strong>Pros:</strong> Most reliable, full debugging tools, fastest after initial setup</p>
+                <p><strong>Time:</strong> 10 minutes first build, 30 seconds after</p>
+            </div>
+            
+            <div class="option-card">
+                <h3>Option 2: GitHub Actions <span class="badge">FREE CLOUD</span></h3>
+                <div class="steps">
+                    <ol>
+                        <li>Download the source code above</li>
+                        <li>Create a GitHub repository and push the code</li>
+                        <li>Add a GitHub Actions workflow (see <code>HOW_TO_BUILD_APK.md</code> included in the ZIP)</li>
+                        <li>Push to GitHub - the APK builds automatically in the cloud</li>
+                        <li>Download APK from the Actions tab</li>
+                    </ol>
+                </div>
+                <p><strong>Pros:</strong> No local software needed, builds in the cloud</p>
+                <p><strong>Time:</strong> 5-10 minutes per build</p>
+            </div>
+            
+            <div class="option-card">
+                <h3>Option 3: Command Line (Linux/Mac Users)</h3>
+                <div class="steps">
+                    <ol>
+                        <li>Download the source code above</li>
+                        <li>Install Java 17+: <code>sudo apt install openjdk-17-jdk</code></li>
+                        <li>Install Android SDK command line tools</li>
+                        <li>Run: <code>./gradlew assembleDebug</code></li>
+                        <li>Get APK from <code>app/build/outputs/apk/debug/</code></li>
+                    </ol>
+                </div>
+                <p><strong>Pros:</strong> Lightweight, scriptable</p>
+                <p><strong>Cons:</strong> Manual SDK setup required</p>
+                <p>See <code>HOW_TO_BUILD_APK.md</code> in the download for detailed commands.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📝 Before Building</h2>
+            <p><strong>Configure the Backend URL:</strong></p>
+            <div class="steps">
+                <ol>
+                    <li>Open <code>app/src/main/java/com/example/cyberlens/ScannerClient.kt</code></li>
+                    <li>Replace the <code>baseUrl</code> with this Replit's URL:</li>
+                </ol>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>object ScannerClient {
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://YOUR-REPLIT-URL-HERE.repl.co/")  // ← Change this!
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val api = retrofit.create(ScannerApi::class.java)
+}</code></pre>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📚 What's Included in the Download</h2>
+            <ul style="padding-left: 25px;">
+                <li><code>app/</code> - Android application source code (Kotlin)</li>
+                <li><code>backend/</code> - Flask server (already running on this Replit)</li>
+                <li><code>build.gradle</code>, <code>settings.gradle</code> - Gradle configuration</li>
+                <li><code>HOW_TO_BUILD_APK.md</code> - Detailed build instructions</li>
+                <li><code>README.md</code> - Project documentation</li>
+            </ul>
+        </div>
+        
+        <div class="card" style="text-align: center;">
+            <h2>🚀 Ready to Start?</h2>
+            <p>Download the source code and follow the build instructions included in the ZIP file.</p>
+            <a href="/downloads/CyberLens-Source.tar.gz" class="download-btn">
+                <span class="icon">⬇️</span>Download CyberLens Source Code
+            </a>
+            <p style="margin-top: 20px; font-size: 14px; color: #999;">
+                <a href="/" style="color: #667eea; text-decoration: none;">← Back to Dashboard</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
