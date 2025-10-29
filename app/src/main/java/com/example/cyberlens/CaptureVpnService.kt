@@ -1,7 +1,6 @@
 
 package com.example.cyberlens
 
-import kotlinx.coroutines.coroutineContext
 import android.app.Service
 import android.content.Intent
 import android.net.VpnService
@@ -48,7 +47,7 @@ class CaptureVpnService : VpnService() {
         val input = FileInputStream(fd)
         val packet = ByteArray(32767)
         val buffer = ByteBuffer.wrap(packet)
-        while (coroutineContext.isActive) {
+        while (job?.isActive == true) {
             try {
                 val length = input.read(packet)
                 if (length > 0) {
