@@ -1,0 +1,11 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+    <TextView android:id="@+id/title" android:text="CyberLens - Website/IP Security Scanner" android:textSize="18sp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button android:id="@+id/btnStart" android:text="Start Capture" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button android:id="@+id/btnStop" android:text="Stop Capture" android:layout_width="match_parent" android:layout_height="wrap_content" android:enabled="false"/>
+    <TextView android:text="Captured Hosts:" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <ListView android:id="@+id/listHosts" android:layout_width="match_parent" android:layout_height="wrap_content" android:dividerHeight="1dp"/>
+</LinearLayout>
