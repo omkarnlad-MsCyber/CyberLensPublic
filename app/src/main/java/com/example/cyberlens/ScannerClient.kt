@@ -18,7 +18,7 @@ interface ScannerApi {
 
 object ScannerClient {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:5000/") // change to your backend (emulator -> host)
+        .baseUrl("http://192.168.1.8:5000") // change to your backend (emulator -> host)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val api = retrofit.create(ScannerApi::class.java)
